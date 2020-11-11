@@ -50,6 +50,7 @@ public class GcppubApplication {
     @PostMapping("/infraconfig")
     public ResponseEntity<Object> postConfig(@RequestBody InfraConfig infraConfig)
     {
+    	System.out.println("infraconfig message: "+infraConfig.toString());
     	this.messagingGateway.sendToPubsub(infraConfig.toString());
     	return new ResponseEntity<>(HttpStatus.OK);
     }
